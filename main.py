@@ -1,7 +1,8 @@
 import numpy as np
 from matplotlib import pyplot as plot
 
-if __name__ == '__main__':
+
+def multiplot():
     fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=200)
 
     ax = ax.ravel()
@@ -23,7 +24,21 @@ if __name__ == '__main__':
     np.random.shuffle(height)
     x = np.arange(0, len(height))
 
-    ax[1].plot(x, height,label=fr"$wzrost$")
+    ax[1].plot(x, height, label=fr"$wzrost$")
     ax[2].hist(height, bins=20)
 
     plot.show()
+
+
+def simple():
+    x = np.linspace(0, 5, 100)
+    y = x * x
+    print(x)
+    print(y)
+    plot.plot(x, y)
+    plot.show()
+
+
+if __name__ == '__main__':
+    # multiplot()
+    simple()
