@@ -3,7 +3,7 @@ from matplotlib import pyplot as plot
 
 
 def multiplot():
-    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=200)
+    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=10)
 
     ax = ax.ravel()
 
@@ -31,14 +31,21 @@ def multiplot():
 
 
 def simple():
-    fig, ax = plot.subplots(2, 2)
+    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=200)
 
     x = np.linspace(0, 5, 100)
-    y = x * x
-    # print(x)
-    # print(y)
-    ax[0, 0].plot(x, y, label=fr"$y=x^2$")
+    a_list = np.arange(1, 10)
+
+    for a in a_list:
+        y = a * x * x
+        ax[0, 0].plot(x, y, label=fr"$y={a}x^2$")
+
     ax[0, 0].legend()
+
+    x1 = np.linspace(-5, 5, 100)
+    y1 = x1 * x1 * x1
+    ax[1, 1].plot(x1, y1, label=fr"$y=x^3$")
+    ax[1, 1].legend()
 
     plot.show()
 
