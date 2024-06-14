@@ -31,11 +31,15 @@ def multiplot():
 
 
 def simple():
+    fig, ax = plot.subplots(2, 2)
+
     x = np.linspace(0, 5, 100)
     y = x * x
-    print(x)
-    print(y)
-    plot.plot(x, y)
+    # print(x)
+    # print(y)
+    ax[0, 0].plot(x, y, label=fr"$y=x^2$")
+    ax[0, 0].legend()
+
     plot.show()
 
 
