@@ -3,7 +3,7 @@ from matplotlib import pyplot as plot
 
 
 def multiplot():
-    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=10)
+    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=200)
 
     ax = ax.ravel()
 
@@ -31,7 +31,7 @@ def multiplot():
 
 
 def simple():
-    fig, ax = plot.subplots(2, 2, figsize=(10, 10), dpi=200)
+    fig, ax = plot.subplots(3, 2, figsize=(10, 10), dpi=200)
 
     x = np.linspace(0, 5, 100)
     a_list = np.arange(1, 10)
@@ -46,6 +46,23 @@ def simple():
     y1 = x1 * x1 * x1
     ax[1, 1].plot(x1, y1, label=fr"$y=x^3$")
     ax[1, 1].legend()
+
+    height_m = np.random.randint(175, 185, 100)
+    height_w = np.random.randint(160, 170, 200)
+
+    height = np.append(height_m, height_w)
+    np.random.shuffle(height)
+    x = np.arange(0, len(height))
+    ax[0, 1].plot(x, height, label=fr"$wzrost$")
+    ax[0, 1].legend()
+
+    ax[1, 0].hist(height, bins=50, label=fr"$wzrost$")
+
+    mu, sigma = 0, 0.1
+    height_gauss = np.random.normal(mu, sigma, 100)
+    x = np.arange(0, len(height_gauss))
+    ax[2, 0].plot(x, height_gauss, label=fr"$wzrost$")
+    ax[2, 0].legend()
 
     plot.show()
 
