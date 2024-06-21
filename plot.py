@@ -1,5 +1,10 @@
 import numpy as np
+from matplotlib import pyplot as plt
 
 if __name__ == "__main__":
-   A = np.array([1, 2, 3, 4, 5])
-   print(A)
+    X = np.linspace(0, 1, 10)
+    Y = X*X
+    print(X)
+    print(Y)
+    plt.plot(X, Y)
+    plt.show()

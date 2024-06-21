@@ -31,7 +31,7 @@ def multiplot():
 
 
 def simple():
-    fig, ax = plot.subplots(3, 2, figsize=(10, 10), dpi=200)
+    fig, ax = plot.subplots(4, 2, figsize=(10, 10), dpi=200)
 
     x = np.linspace(0, 5, 100)
     a_list = np.arange(1, 10)
@@ -58,11 +58,18 @@ def simple():
 
     ax[1, 0].hist(height, bins=50, label=fr"$wzrost$")
 
-    mu, sigma = 0, 0.1
-    height_gauss = np.random.normal(mu, sigma, 100)
+    mu, sigma = 175, 5
+    height_gauss = np.random.normal(mu, sigma, 2000)
     x = np.arange(0, len(height_gauss))
     ax[2, 0].plot(x, height_gauss, label=fr"$wzrost$")
     ax[2, 0].legend()
+
+    ax[2, 1].hist(height_gauss, bins=20,label=fr"$wzrost$")
+
+
+
+    ax[3, 0].plot(x, height_gauss, label=fr"$wzrost$")
+    ax[3, 0].legend()
 
     plot.show()
 
